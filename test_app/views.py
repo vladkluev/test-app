@@ -10,9 +10,12 @@ sentry_sdk.init(
     traces_sample_rate=1.0
 )
 
+class MyCustomException(Exception):
+    pass
+
 @app.route('/')
 def index():
-    return 1/0
+    raise MyCustomException 
 
 @app.route('/fuckmeup')
 def fuckmeup():
